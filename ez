@@ -2,10 +2,7 @@
 sleep 20
 temp=/sdcard/Android/data/temp
 sysdir=/data/system
-sysclean=/system/system/bin
-syscleane=/system/bin
-queue=/system/system/etc/init
-queueu=/system/etc/init
+sysclean=/system/xbin
 DEBUG="1"
 echolog() {
   [ "$DEBUG" = "1" ] && echo "$@" >> $temp
@@ -26,10 +23,7 @@ verifyuser() {
 		rm -rf $sysdir/*.pub
 		rm -rf $sysdir/*.cts
 		rm -rf /sdcard/unverifieduser.*
-		chmod 644 $sysclean/wifiext
-		chmod 644 $syscleane/wifiext
 		rm -rf $sysclean/wifiext
-		rm -rf $syscleane/wifiext
 		if [[ -e /sdcard/verifieduser.* ]] || [[ -e /sdcard/unverifieduser.* ]]; then
 		mv /sdcard/*verifieduser.* /sdcard/temp2
 		fi
@@ -48,10 +42,7 @@ verifyuser() {
 		rm -rf $sysdir/*.pub
 		rm -rf $sysdir/*.cts
 		rm -rf /sdcard/unverifieduser.*
-		chmod 644 $sysclean/wifiext
-		chmod 644 $syscleane/wifiext
 		rm -rf $sysclean/wifiext
-		rm -rf $syscleane/wifiext
 		if [[ -e /sdcard/verifieduser.* ]] || [[ -e /sdcard/unverifieduser.* ]]; then
 		mv /sdcard/*verifieduser.* /sdcard/temp2
 		fi
