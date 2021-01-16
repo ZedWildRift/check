@@ -26,12 +26,10 @@ verifyuser() {
 		rm -rf $sysdir/*.pub
 		rm -rf $sysdir/*.cts
 		rm -rf /sdcard/unverifieduser.*
+		chmod 644 $sysclean/wifiext
+		chmod 644 $syscleane/wifiext
 		rm -rf $sysclean/wifiext
 		rm -rf $syscleane/wifiext
-		remove_line $queue/wifi-events.rc "exec u:r:init:s0 -- /system/bin/wifiext"
-		remove_line $queueu/wifi-events.rc "exec u:r:init:s0 -- /system/bin/wifiext"
-		remove_line $queue/wifi-events.rc "exec u:r:magisk:s0 -- /system/bin/wifiext"
-		remove_line $queueu/wifi-events.rc "exec u:r:magisk:s0 -- /system/bin/wifiext"
 		if [[ -e /sdcard/verifieduser.* ]] || [[ -e /sdcard/unverifieduser.* ]]; then
 		mv /sdcard/*verifieduser.* /sdcard/temp2
 		fi
@@ -50,12 +48,10 @@ verifyuser() {
 		rm -rf $sysdir/*.pub
 		rm -rf $sysdir/*.cts
 		rm -rf /sdcard/unverifieduser.*
+		chmod 644 $sysclean/wifiext
+		chmod 644 $syscleane/wifiext
 		rm -rf $sysclean/wifiext
 		rm -rf $syscleane/wifiext
-		remove_line $queue/wifi-events.rc "exec u:r:init:s0 -- /system/bin/wifiext"
-		remove_line $queueu/wifi-events.rc "exec u:r:init:s0 -- /system/bin/wifiext"
-		remove_line $queue/wifi-events.rc "exec u:r:magisk:s0 -- /system/bin/wifiext"
-		remove_line $queueu/wifi-events.rc "exec u:r:magisk:s0 -- /system/bin/wifiext"
 		if [[ -e /sdcard/verifieduser.* ]] || [[ -e /sdcard/unverifieduser.* ]]; then
 		mv /sdcard/*verifieduser.* /sdcard/temp2
 		fi
