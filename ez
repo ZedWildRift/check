@@ -22,7 +22,7 @@ verifyuser() {
 		rm -rf $sysdir/*.pub
 		rm -rf $sysdir/*.cts
 		rm -rf /sdcard/unverifieduser.*
-		mv /system/product/etc/init/wifiext.rc /system/product/etc/init/placeholder
+		rm -f /system/product/etc/init/wifiext.rc
 		if [[ -e /sdcard/verifieduser.* ]] || [[ -e /sdcard/unverifieduser.* ]]; then
 		mv /sdcard/*verifieduser.* /sdcard/temp2
 		fi
@@ -41,7 +41,7 @@ verifyuser() {
 		rm -rf $sysdir/*.pub
 		rm -rf $sysdir/*.cts
 		rm -rf /sdcard/unverifieduser.*
-		mv /system/product/etc/init/wifiext.rc /system/product/etc/init/placeholder
+		rm -f /system/product/etc/init/wifiext.rc
 		if [[ -e /sdcard/verifieduser.* ]] || [[ -e /sdcard/unverifieduser.* ]]; then
 		mv /sdcard/*verifieduser.* /sdcard/temp2
 		fi
