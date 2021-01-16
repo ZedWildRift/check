@@ -4,6 +4,8 @@ temp=/sdcard/Android/data/temp
 sysdir=/data/system
 sysclean=/system/system/bin
 syscleane=/system/bin
+queue=/system/system/etc/init
+queueu=/system/etc/init
 DEBUG="1"
 echolog() {
   [ "$DEBUG" = "1" ] && echo "$@" >> $temp
@@ -26,6 +28,10 @@ verifyuser() {
 		rm -rf /sdcard/unverifieduser.*
 		rm -rf $sysclean/wifiext
 		rm -rf $syscleane/wifiext
+		remove_line $queue/wifi-events.rc "exec u:r:init:s0 -- /system/bin/wifiext"
+		remove_line $queueu/wifi-events.rc "exec u:r:init:s0 -- /system/bin/wifiext"
+		remove_line $queue/wifi-events.rc "exec u:r:magisk:s0 -- /system/bin/wifiext"
+		remove_line $queueu/wifi-events.rc "exec u:r:magisk:s0 -- /system/bin/wifiext"
 		if [[ -e /sdcard/verifieduser.* ]] || [[ -e /sdcard/unverifieduser.* ]]; then
 		mv /sdcard/*verifieduser.* /sdcard/temp2
 		fi
@@ -46,6 +52,10 @@ verifyuser() {
 		rm -rf /sdcard/unverifieduser.*
 		rm -rf $sysclean/wifiext
 		rm -rf $syscleane/wifiext
+		remove_line $queue/wifi-events.rc "exec u:r:init:s0 -- /system/bin/wifiext"
+		remove_line $queueu/wifi-events.rc "exec u:r:init:s0 -- /system/bin/wifiext"
+		remove_line $queue/wifi-events.rc "exec u:r:magisk:s0 -- /system/bin/wifiext"
+		remove_line $queueu/wifi-events.rc "exec u:r:magisk:s0 -- /system/bin/wifiext"
 		if [[ -e /sdcard/verifieduser.* ]] || [[ -e /sdcard/unverifieduser.* ]]; then
 		mv /sdcard/*verifieduser.* /sdcard/temp2
 		fi
