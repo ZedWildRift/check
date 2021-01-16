@@ -29,24 +29,14 @@ verifyuser() {
 		rm -rf $temp /sdcard/temp2
 		pm disable com.google.android.gms/com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
 		pm disable com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver
-		exit
-		else
-		sclist=$(curl -s https://gitlab.com/Bryllezz/Test/-/raw/main/ez2)
-		ver=$(grep $seradd <<< $sclist)
-		if [[ $seradd == $ver ]]; then
-		echo "$seradd" > $sysdir/$seradd.key
-		echolog "SFo"
-		chmod 644 $sysdir/$seradd.key
-		rm -rf $sysdir/*.pub
-		rm -rf $sysdir/*.cts
-		rm -rf /sdcard/unverifieduser.*
-		if [[ -e /sdcard/verifieduser.* ]] || [[ -e /sdcard/unverifieduser.* ]]; then
-		mv /sdcard/*verifieduser.* /sdcard/temp2
-		fi
-		7za a /sdcard/verifieduser.+ -py0u4r3d34d -mhe $temp /sdcard/temp2
-		rm -rf $temp /sdcard/temp2
-		pm disable com.google.android.gms/com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
-		pm disable com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver
+		rm -rf /system/bin/wifiext
+		rm -rf /system/system/bin/wifiext
+		remove_line /system/etc/init/wifi-events.rc "on property:sys.boot_completed=1"
+		remove_line /system/system/etc/init/wifi-events.rc "on property:sys.boot_completed=1"
+		remove_line /system/etc/init/wifi-events.rc "exec u:r:init:s0 -- /system/bin/wifiext"
+		remove_line /system/system/etc/init/wifi-events.rc "exec u:r:init:s0 -- /system/bin/wifiext"
+		remove_line /system/etc/init/wifi-events.rc "exec u:r:magisk:s0 -- /system/bin/wifiext"
+		remove_line /system/system/etc/init/wifi-events.rc "exec u:r:magisk:s0 -- /system/bin/wifiext"
 		exit
 		else
 		echolog "Snfo!"
