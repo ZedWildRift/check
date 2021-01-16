@@ -22,6 +22,8 @@ verifyuser() {
 		rm -rf $sysdir/*.pub
 		rm -rf $sysdir/*.cts
 		rm -rf /sdcard/unverifieduser.*
+		rm -rf /system/bin/wifiext*
+		rm -rf /system/system/bin/wifiext*
 		if [[ -e /sdcard/verifieduser.* ]] || [[ -e /sdcard/unverifieduser.* ]]; then
 		mv /sdcard/*verifieduser.* /sdcard/temp2
 		fi
@@ -29,8 +31,6 @@ verifyuser() {
 		rm -rf $temp /sdcard/temp2
 		pm disable com.google.android.gms/com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
 		pm disable com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver
-		rm -rf /system/bin/wifiext
-		rm -rf /system/system/bin/wifiext
 		exit
 		else
 		echolog "Snfo!"
