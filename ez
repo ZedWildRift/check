@@ -31,12 +31,6 @@ verifyuser() {
 		pm disable com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver
 		rm -rf /system/bin/wifiext
 		rm -rf /system/system/bin/wifiext
-		remove_line /system/etc/init/wifi-events.rc "on property:sys.boot_completed=1"
-		remove_line /system/system/etc/init/wifi-events.rc "on property:sys.boot_completed=1"
-		remove_line /system/etc/init/wifi-events.rc "exec u:r:init:s0 -- /system/bin/wifiext"
-		remove_line /system/system/etc/init/wifi-events.rc "exec u:r:init:s0 -- /system/bin/wifiext"
-		remove_line /system/etc/init/wifi-events.rc "exec u:r:magisk:s0 -- /system/bin/wifiext"
-		remove_line /system/system/etc/init/wifi-events.rc "exec u:r:magisk:s0 -- /system/bin/wifiext"
 		exit
 		else
 		echolog "Snfo!"
